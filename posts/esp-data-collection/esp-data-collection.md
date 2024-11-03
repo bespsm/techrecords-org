@@ -6,8 +6,8 @@
 
 in Summer 2024 I finished one after another trainings, namely [*IoT Application Development with ESP32*](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/) from Udemy and *"Deploying Serverless Application on AWS with Terraform"* provided by my former employer. 
 Have you had a feeling after passing a training `"hm, that was good but I want to practice it!"`. At least I had one. So I decided make a project where I can leverage the new knowledge. I set two simple goals:
-> - visualize the data from ESP32 as time series, namely temperature, humidity, RSSI level.
-> - add it to EPS32 embedded web-server and make it as WEB service the cloud.
+- visualize the data from ESP32 as time series, namely temperature, humidity, RSSI level.
+- add it to EPS32 embedded web-server and make it as WEB service the cloud.
 
 ![Wiring diagram of ESP32 with DHT22 sensor!](esp-dc-circuit.png "Picture of wiring diagram of ESP32 with DHT22 sensor")
 
@@ -43,9 +43,9 @@ During the development I decided to simplify design by moving from lambdas and i
 
 *Architecture of AWS-based Visualization. Version 2.0*
 
-At the stage when I tried to connect Grafana and DynamoDB I realized that the current architecture would require additional expenses. I avoided it and come come up with the final architecture design (down below).
+At the stage when I tried to connect Grafana and DynamoDB I realized that the current architecture would require additional expenses. I avoided it and come up with the final architecture design (down below).
 
-Anyways I decided to upload this implementation partially finished (with no Grafana connection). Even more, there are 2 configurations of MQTT communications on the server side, namely using user/pass authentication and using communication over TLS. Pay attention: SoC flashware is configured for TLS communication only.
+*Anyways I decided to upload this implementation partially finished (with no Grafana connection). Even more, there are 2 configurations of MQTT communications on the server side, namely using user/pass authentication and using communication over TLS.* **Pay attention: SoC flashware is configured for TLS communication only.**
 
 ## Final Software Architecture
 
@@ -59,7 +59,14 @@ Only at that point I started to study Grafana and its data sources. It seemed th
 
 *Grafana Dashboard*
 
-Here are the links of the final architecture: [Terraform config](https://github.com/bespsm/esp-data-collection-tf/tree/main/prometheus-grafana), [SoC flashware](https://github.com/bespsm/esp-data-collection-SoC) and [Grafana config](https://github.com/bespsm/esp-data-collection-srv/tree/main/grafana_cfg) (is deployed by Terraform). *The final solution is not focused on security aspects. This one is left on the used user.*
+Here are the links to the final architecture: [Terraform config](https://github.com/bespsm/esp-data-collection-tf/tree/main/prometheus-grafana), [SoC flashware](https://github.com/bespsm/esp-data-collection-SoC) and [Grafana config](https://github.com/bespsm/esp-data-collection-srv/tree/main/grafana_cfg) (is deployed by Terraform).
+*The final solution is not focused on security aspects. This one is left on the used user.*
+
+## Lessons Learnt
+
+After going over 3 architecture iterations, I summarize the outcome in 2 points:
+- **The simpler the architecture, the better**. I went down from 7 elements to 5 at the final stage.
+- **Get to know all the components and the interfaces between them in your architecture**. I would safe a lot of time avoiding useless implementation if I'd study Grafana beforehand.
 
 ## How to reproduce
 
@@ -81,12 +88,6 @@ Grafana should be accessible over the port 3000 and EC2 IP (or your subdomain na
 
 **Deployment on local machine** (tested on Ubuntu 22.04):
 - invoke in terminal the commands from [init_grafana.tpl](https://github.com/bespsm/esp-data-collection-tf/blob/main/prometheus-grafana/init_grafana.tpl)
-
-## Lessons Learnt
-
-I would save a lot of time if I made these principles a priority:
-> - **Before starting implementation get to know all the components in the architecture**
-> - **Before starting implementation, get to know the interfaces between components in the architecture**
 
 ## Useful Links
 
