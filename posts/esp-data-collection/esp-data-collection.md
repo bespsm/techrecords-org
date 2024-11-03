@@ -1,16 +1,13 @@
 # Architectural Evolution: Lessons from Merging AWS and ESP32 Development
 
 > This article reviews the architecture of cloud-based visualization of the data from ESP32 microcontroller.
->
 > My experience may help other developers/architects avoid the problems I encountered during the development process.
->
-> The links to the [source code](#links), [how to reproduce](#how-to) and [lessons learnt](#lessons-learnt).
+> The links to the [links](#links), [how to reproduce](#how-to-reproduce) and [lessons learnt](#lessons-learnt).
 
 in Summer 2024 I finished one after another trainings, namely [*IoT Application Development with ESP32*](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/) from Udemy and *"Deploying Serverless Application on AWS with Terraform"* provided by my former employer. 
 Have you had a feeling after passing a training `"hm, that was good but I want to practice it!"`. At least I had one. So I decided make a project where I can leverage the new knowledge. I set two simple goals:
-> visualize the data from ESP32 as time series, namely temperature, humidity, RSSI level.
->
-> add it to EPS32 embedded web-server and make it as WEB service the cloud.
+> - visualize the data from ESP32 as time series, namely temperature, humidity, RSSI level.
+> - add it to EPS32 embedded web-server and make it as WEB service the cloud.
 
 ![Wiring diagram of ESP32 with DHT22 sensor!](esp-dc-circuit.png "Picture of wiring diagram of ESP32 with DHT22 sensor")
 
@@ -56,7 +53,7 @@ Here is how Grafana Dashboard looks like:
 
 Here are the links of the final architecture: [Terraform config](https://github.com/bespsm/esp-data-collection-tf/tree/main/prometheus-grafana), [SoC flashware](https://github.com/bespsm/esp-data-collection-SoC) and [Grafana config](https://github.com/bespsm/esp-data-collection-srv/tree/main/grafana_cfg) (is deployed by Terraform). *The final solution is not focused on security aspects. This one is left on the used user.*
 
-### How to reproduce {#how-to}
+### How to reproduce
 
 **SoC:**
 - assemble ESP32 with a DHT22 sensor, check this (tutorial)[https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-sensor-arduino-ide/] or search in the internet
@@ -77,13 +74,13 @@ Grafana should be accessible over the port 3000 and EC2 IP (or your subdomain na
 **Deployment on local machine** (tested on Ubuntu 22.04):
 - invoke in terminal the commands from [init_grafana.tpl](https://github.com/bespsm/esp-data-collection-tf/blob/main/prometheus-grafana/init_grafana.tpl)
 
-### Lessons Learnt {#lessons-learnt}
+### Lessons Learnt
 
 I would save a lot of time if I made these principles a priority:
 > - **Before starting implementation get to know all the components in the architecture**
 > - **Before starting implementation, get to know the interfaces between components in the architecture**
 
-### Links {#links}
+### Links
 
 - [*IoT Application Development with ESP32*](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/)
 - [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
