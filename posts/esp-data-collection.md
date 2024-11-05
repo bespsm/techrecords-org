@@ -3,13 +3,13 @@ title: Architectural Evolution. Lessons from Merging AWS and ESP32 Development
 taxonomy:
     category: Projects
     post_tag:
-        * DEV
-        * software
-        * architecture
-        * IT
-        * ESP32
-        * AWS
-        * cloud
+        - DEV
+        - software
+        - architecture
+        - IT
+        - ESP32
+        - AWS
+        - cloud
 ---
 
 > This article reviews the architecture of cloud-based visualization of the data from ESP32 microcontroller.
@@ -21,29 +21,21 @@ Have you had a feeling after passing a training `"hm, that was good but I want t
 * visualize the data from ESP32 as time series, namely temperature, humidity, RSSI level.
 * add it to EPS32 embedded web-server and make it as WEB service the cloud.
 
-![Wiring diagram of ESP32 with DHT22 sensor](/_images/esp-dc-circuit.png "Picture of wiring diagram of ESP32 with DHT22 sensor") {.wp-post-image}
+![Wiring diagram of ESP32 with DHT22 sensor](/_images/esp-dc-circuit.png "Wiring diagram of ESP32 with DHT22 sensor") {.wp-post-image}
 
-*Wiring diagram of ESP32 with DHT22 sensor*
-
-![Assembled circuit](/_images/esp-dc-assembly-look.jpg "Picture of sssembled circuit") {.wp-post-image}
-
-*Assembled circuit (with RGB LED which, optional)*
+![Assembled circuit](/_images/esp-dc-assembly-look.jpg "Assembled circuit") {.wp-post-image}
 
 ## Visualization in ESP32 embedded web-server
 
 No issues were there. I extended original [IoT course's repository](https://github.com/kevinudemy/udemy_esp32) by adding `chart.js` library and sensor chart to embedded ESP32 web-server. My fork with extensions and detailed description is located [here](https://github.com/bespsm/esp-data-collection-soc). 
 
-![Visualization in ESP32 embedded web-server](/_images/esp-dc-local-visual.png "Picture of visualization in ESP32 embedded web-server") {.wp-post-image}
-
-*Visualization in ESP32 embedded web-server*
+![Visualization in ESP32 embedded web-server](/_images/esp-dc-local-visual.png "Visualization in ESP32 embedded web-server") {.wp-post-image}
 
 ## WEB service visualization on AWS. Initial Software Architecture
 
 The idea was to deploy [Grafana](https://grafana.com/) as UI on EC2, add AWS IoT Thing as MQTT Broker, use DynamoDB as data storage, set up API Gateway for accessing data over HTTP and add few lambdas to glue things together.
 
-![Architecture of AWS-based Visualization. Version 1.0](/_images/esp-dc-design-v1.0.png "Picture of visualization on AWS. Version one") {.wp-post-image}
-
-*Architecture of AWS-based Visualization. Version 1.0*
+![Architecture of AWS-based Visualization. Version 1.0](/_images/esp-dc-design-v1.0.png "Architecture of AWS-based Visualization. Version 1.0") {.wp-post-image}
 
 At that moment I didn't really study Grafana and its data sources and naively thinking that it supports data fetching from REST API or DynamoDB out of box.
 
@@ -51,9 +43,7 @@ At that moment I didn't really study Grafana and its data sources and naively th
 
 During the development I decided to simplify design by moving from lambdas and instead use a [python script](https://github.com/bespsm/esp-data-collection-srv/blob/main/script) for forwarding MQTT messages to DynamoDB and use DynamoDB data source in Grafana for fetching time series data. A part from that I replaced AWS IoT MQTT Broker by Eclipse Mosquitto MQTT Broker which I installed on the same EC2 instance where Grafana was. Route53 is used to have a static hostname for ESP32.
 
-![Visualization on AWS. Version two](/_images/esp-dc-design-v2.0.png "Picture of visualization on AWS. Version two") {.wp-post-image}
-
-*Architecture of AWS-based Visualization. Version 2.0*
+![Visualization on AWS. Version two](/_images/esp-dc-design-v2.0.png "Architecture of AWS-based Visualization. Version 2.0") {.wp-post-image}
 
 At the stage when I tried to connect Grafana and DynamoDB I realized that the current architecture would require additional expenses. I avoided it and come up with the final architecture design (down below).
 
@@ -63,13 +53,9 @@ At the stage when I tried to connect Grafana and DynamoDB I realized that the cu
 
 Only at that point I started to study Grafana and its data sources. It seemed that Prometheus together with Prometheus Pushagateway was most common choice for collecting time series data over REST.
 
-![Visualization on AWS. Version three](/_images/esp-dc-design-v3.0.png "Picture of visualization on AWS. Version three") {.wp-post-image}
+![Visualization on AWS. Version three](/_images/esp-dc-design-v3.0.png "Architecture of AWS-based Visualization. Version 3.0") {.wp-post-image}
 
-*Architecture of AWS-based Visualization. Version 3.0*
-
-![Grafana Dashboard look](/_images/esp-dc-grafana-dash.png "Picture of Grafana Dashboard") {.wp-post-image}
-
-*Grafana Dashboard*
+![Grafana Dashboard look](/_images/esp-dc-grafana-dash.png "Grafana Dashboard") {.wp-post-image}
 
 Here are the links to the final architecture: [Terraform config](https://github.com/bespsm/esp-data-collection-tf/tree/main/prometheus-grafana), [SoC flashware](https://github.com/bespsm/esp-data-collection-SoC) and [Grafana config](https://github.com/bespsm/esp-data-collection-srv/tree/main/grafana_cfg) (is deployed by Terraform).
 *The final solution is not focused on security aspects. This one is left on the used user.*
@@ -105,7 +91,7 @@ git clone https://github.com/bespsm/esp-data-collection-srv.git
 cd esp-data-collection-srv
 docker compose up -d
 ```
-* go to grafana page: http://localhost:3000
+* go to [grafana local page](http://localhost:3000)
 
 ## Useful Links
 
