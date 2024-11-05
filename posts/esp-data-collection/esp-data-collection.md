@@ -70,13 +70,13 @@ After going over 3 architecture iterations, I summarize the outcome in 2 points:
 
 ## How to reproduce
 
-**SoC:**
+#### Flash ESP32
 - assemble ESP32 with a DHT22 sensor, according to wiring diagram
 - clone [the course's repo with my extenstions](https://github.com/bespsm/esp-data-collection-soc)
 - read the READE.md and adapt the code to your needs
 - build and flash to your hardware
 
-**AWS deployment:**
+#### AWS deployment of server side
 - clone [Terraform configs repo](https://github.com/bespsm/esp-data-collection-tf)
 - read the READE.md
 - adapt [techrecords_grafana.tfvars](https://github.com/bespsm/esp-data-collection-tf/blob/main/prometheus-grafana/techrecords_grafana.tfvars) to your needs
@@ -86,8 +86,14 @@ terraform apply  -var-file=techrecords_grafana.tfvars
 ```
 Grafana should be accessible over the port 3000 and EC2 IP (or your subdomain name from `techrecords_grafana.tfvars`)
 
-**Deployment on local machine** (tested on Ubuntu 22.04):
-- invoke in terminal the commands from [init_grafana.tpl](https://github.com/bespsm/esp-data-collection-tf/blob/main/prometheus-grafana/init_grafana.tpl)
+#### Local deployment of server side (tested on Ubuntu 22.04)
+- invoke following commands:
+```
+git clone https://github.com/bespsm/esp-data-collection-srv.git
+cd esp-data-collection-srv
+docker compose up -d
+```
+- go to grafana page: [http://localhost:3000]
 
 ## Useful Links
 
