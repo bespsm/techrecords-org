@@ -99,4 +99,4 @@ docker compose up -d
 * [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
 
 
-PS: If you have any questions, comments or want to share your experience or give an advice, feel free to leave the comment down below or write me a message to: <bespsm@techrecords.com>
+*PS: If you have questions, comments, hints, or find an error, feel free to contact me over: <contact@techrecords.com>*
