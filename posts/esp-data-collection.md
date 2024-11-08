@@ -14,6 +14,15 @@ taxonomy:
 
 > This article reviews the architecture of cloud-based visualization of the data from ESP32 microcontroller. My experience may help other developers/architects avoid the problems I encountered during the development process. It contains the links to source code, HOWTOs locally and in AWS and lessons learnt.
 
+## Links used in the project
+
+1. [Terraform provision configs](https://github.com/bespsm/esp-data-collection-tf)
+2. [Server configs & appps](https://github.com/bespsm/esp-data-collection-srv)
+3. [ESP32 flashware](https://github.com/bespsm/esp-data-collection-soc)
+4. [Udemy. IoT Application Development with ESP32](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/)
+5. [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
+
+---
 
 in Summer 2024 I finished one after another trainings, namely [*IoT Application Development with ESP32*](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/) from Udemy and *"Deploying Serverless Application on AWS with Terraform"* provided by my former employer.
 Have you had a feeling after passing a training *"hm, that was good but I want to practice it!"*. At least I had one. So I decided make a project where I can leverage the new knowledge. I set two simple goals:
@@ -90,10 +99,3 @@ cd esp-data-collection-srv
 docker compose up -d
 ```
 * go to [grafana local page](http://localhost:3000)
-
-
-
-## Useful Links
-
-1. [IoT Application Development with ESP32](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/)
-2. [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
