@@ -80,7 +80,7 @@ __AWS deployment of server side__
 cd esp-data-collection-tf/prometheus-grafana/
 terraform apply  -var-file=techrecords_grafana.tfvars
 ```
-Grafana should be accessible over the port 3000 and EC2 IP (or your subdomain name from `techrecords_grafana.tfvars`)
+Grafana should be accessible over the port 3000 and EC2 IP (or your subdomain name from "techrecords_grafana.tfvars")
 
 __Local deployment of server side__ (tested on Ubuntu 22.04)
 * invoke following commands:
@@ -95,5 +95,5 @@ docker compose up -d
 
 ## Useful Links
 
-* [IoT Application Development with ESP32](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/)
-* [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
+1. [IoT Application Development with ESP32](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/)
+2. [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
