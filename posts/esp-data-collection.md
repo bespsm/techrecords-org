@@ -17,7 +17,7 @@ taxonomy:
 ## Links used in the project
 
 1. [Terraform provision configs](https://github.com/bespsm/esp-data-collection-tf)
-2. [Server configs & appps](https://github.com/bespsm/esp-data-collection-srv)
+2. [Server configs & apps](https://github.com/bespsm/esp-data-collection-srv)
 3. [ESP32 flashware](https://github.com/bespsm/esp-data-collection-soc)
 4. [Udemy. IoT Application Development with ESP32](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/)
 5. [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
