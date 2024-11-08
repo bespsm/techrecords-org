@@ -12,12 +12,11 @@ taxonomy:
         - cloud
 ---
 
-> This article reviews the architecture of cloud-based visualization of the data from ESP32 microcontroller.
-> My experience may help other developers/architects avoid the problems I encountered during the development process.
-> The [links](#useful-links), [how to reproduce](#how-to-reproduce) and [lessons learnt](#lessons-learnt).
+> This article reviews the architecture of cloud-based visualization of the data from ESP32 microcontroller. My experience may help other developers/architects avoid the problems I encountered during the development process. It contains the links to source code, HOWTOs locally and in AWS and lessons learnt.
 
-in Summer 2024 I finished one after another trainings, namely [*IoT Application Development with ESP32*](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/) from Udemy and *"Deploying Serverless Application on AWS with Terraform"* provided by my former employer. 
-Have you had a feeling after passing a training `"hm, that was good but I want to practice it!"`. At least I had one. So I decided make a project where I can leverage the new knowledge. I set two simple goals:
+
+in Summer 2024 I finished one after another trainings, namely [*IoT Application Development with ESP32*](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/) from Udemy and *"Deploying Serverless Application on AWS with Terraform"* provided by my former employer.
+Have you had a feeling after passing a training *"hm, that was good but I want to practice it!"*. At least I had one. So I decided make a project where I can leverage the new knowledge. I set two simple goals:
 * visualize the data from ESP32 as time series, namely temperature, humidity, RSSI level.
 * add it to EPS32 embedded web-server and make it as WEB service the cloud.
 
@@ -27,7 +26,7 @@ Have you had a feeling after passing a training `"hm, that was good but I want t
 
 ## Visualization in ESP32 embedded web-server
 
-No issues were there. I extended original [IoT course's repository](https://github.com/kevinudemy/udemy_esp32) by adding `chart.js` library and sensor chart to embedded ESP32 web-server. My fork with extensions and detailed description is located [here](https://github.com/bespsm/esp-data-collection-soc). 
+No issues were there. I extended original [IoT course's repository](https://github.com/kevinudemy/udemy_esp32) by adding **chart.js** library and sensor chart to embedded ESP32 web-server. My fork with extensions and detailed description is located [here](https://github.com/bespsm/esp-data-collection-soc).
 
 ![Visualization in ESP32 embedded web-server](/_images/esp-dc-local-visual.png "Visualization in ESP32 embedded web-server") {.wp-post-image}
 
@@ -47,7 +46,7 @@ During the development I decided to simplify design by moving from lambdas and i
 
 At the stage when I tried to connect Grafana and DynamoDB I realized that the current architecture would require additional expenses. I avoided it and come up with the final architecture design (down below).
 
-*Anyways I decided to upload this implementation partially finished (with no Grafana connection). Even more, there are 2 configurations of MQTT communications on the server side, namely using user/pass authentication and using communication over TLS.* __Pay attention: SoC flashware is configured for TLS communication only.__
+Anyways I decided to upload this implementation partially finished (with no Grafana connection). Even more, there are 2 configurations of MQTT communications on the server side, namely using user/pass authentication and using communication over TLS. __Pay attention: SoC flashware is configured for TLS communication only.__
 
 ## Final Software Architecture
 
@@ -57,8 +56,7 @@ Only at that point I started to study Grafana and its data sources. It seemed th
 
 ![Grafana Dashboard look](/_images/esp-dc-grafana-dash.png "Grafana Dashboard") {.wp-post-image}
 
-Here are the links to the final architecture: [Terraform config](https://github.com/bespsm/esp-data-collection-tf/tree/main/prometheus-grafana), [SoC flashware](https://github.com/bespsm/esp-data-collection-SoC) and [Grafana config](https://github.com/bespsm/esp-data-collection-srv/tree/main/grafana_cfg) (is deployed by Terraform).
-*The final solution is not focused on security aspects. This one is left on the used user.*
+Here are the links to the final architecture: [Terraform config](https://github.com/bespsm/esp-data-collection-tf/tree/main/prometheus-grafana), [SoC flashware](https://github.com/bespsm/esp-data-collection-SoC) and [Grafana config](https://github.com/bespsm/esp-data-collection-srv/tree/main/grafana_cfg) (is deployed by Terraform). *The final solution is not focused on security aspects. This one is left on the used user.*
 
 ## Lessons Learnt
 
@@ -93,10 +91,9 @@ docker compose up -d
 ```
 * go to [grafana local page](http://localhost:3000)
 
+
+
 ## Useful Links
 
 * [IoT Application Development with ESP32](https://www.udemy.com/course/iot-application-development-with-the-esp32-using-the-esp-idf/)
 * [How to Set Up a Mosquitto MQTT Broker Securely](https://medium.com/gravio-edge-iot-platform/how-to-set-up-a-mosquitto-mqtt-broker-securely-using-client-certificates-82b2aaaef9c8)
-
-
-*PS: If you have questions, comments, hints, or find an error, feel free to contact me over: <contact@techrecords.com>*
