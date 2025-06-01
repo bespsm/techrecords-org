@@ -111,14 +111,14 @@ Copy it and replace default entity id ("media_player.s3_esphome_i2s_media_player
 
 ## Benefits and Drawbacks
 
-**+** does not require any code development
-**+** compare to bluetooth-solution, it can work in one-to-many streaming configuration
-**+** compare to bluetooth-solution, it can be controlled either locally or remotely over HA
-**-** compare to bluetooth-solution, audio stream is not normalized. When the origin audio is louder, receiver part gets louder audio (it can be fixed)
-**-** requires basic soldering skills
-**-** it's only for HA users, it requires basic knowledge of defining new services in HA
-**-** the audio is not really synchronous. From the other point of view, I cannot be in the few rooms simultaneously, so I don't need really need to have fully synchronous audio
-**-** the streaming part(linux-based PC) is not yet cross-platform, although it can be configured for Windows and MacOS too
+* 🙂 does not require any code development
+* 🙂 compare to bluetooth-solution, it can work in one-to-many streaming configuration
+* 🙂 compare to bluetooth-solution, it can be controlled either locally or remotely over HA
+* 🙁 compare to bluetooth-solution, audio stream is not normalized. When the origin audio is louder, receiver part gets louder audio (it can be fixed)
+* 🙁 requires basic soldering skills
+* 🙁 it's only for HA users, it requires basic knowledge of defining new services in HA
+* 🙁 the audio is not really synchronous. From the other point of view, I cannot be in the few rooms simultaneously, so I don't need really need to have fully synchronous audio
+* 🙁 the streaming part(linux-based PC) is not yet cross-platform, although it can be configured for Windows and MacOS too
 
 ## Things To Improve
 
