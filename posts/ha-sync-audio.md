@@ -56,14 +56,14 @@ __Audio Player__
 
 ## HOW-TO set up linux-based PC as streaming source
 
-* make sure (Pulse Audio)[https://www.freedesktop.org/wiki/Software/PulseAudio/Download/] is installed
+* make sure [Pulse Audio](https://www.freedesktop.org/wiki/Software/PulseAudio/Download/) is installed
 * open UI PulseAudio Volume Control app
 * go to tab "Input Devices", down in the menu select "Show: Monitors", adjust the volume of your monitor channel
 
 ![Picture of PulseAudio, Input Devices menu](/_images/ha-sync-pulse-audio.png "PulseAudio, Input Devices menu") {.wp-post-image}
 
 * install [icecast2](https://icecast.org/download/) service, responsible for converting PCM stream to icecast format
-* edit icecast confguration file, (usually it's located `/etc/icecast2/icecast.xml`). You need to change <source-password> (pass for the tools, that stream the source), <admin-password> (admin pass), <admin-user> (any nickname), <hostname> (IP address of your PC), <port> (could be 8000) fields
+* edit icecast confguration file, (usually it's located in */etc/icecast2/icecast.xml*). You need to change <source-password> (pass for the tools, that stream the source), <admin-password> (admin pass), <admin-user> (any nickname), <hostname> (IP address of your PC), <port> (could be 8000) fields
 * restart icecast:
 ```
 sudo systemctl restart icecast2
