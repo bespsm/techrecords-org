@@ -97,7 +97,7 @@ esphome run ha-sync-audio.md
 ```
 YAML file is located [here](https://github.com/bespsm/ha-configs/blob/main/ha-audio-sync/ha-audio-sync-config.yaml)
 
-**important: In the config file specify SSID, WI-FI password and URL for the audio source stream, which is defined in butt**
+**IMPORTANT: In the config file specify SSID, WI-FI password and URL for the audio source stream, which is defined in butt**
 
 ## HOW-TO connect audio player to Home Assistant
 
