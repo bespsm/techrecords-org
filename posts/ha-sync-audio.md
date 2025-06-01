@@ -83,7 +83,9 @@ sudo systemctl restart icecast2
 
 - Make sure you have all hardware components described above
 - to put DAC Decoder I had to adapt it and also adapty T-Display Shell, see the picture:
-!pic
+
+![Picture after fixing T-Display S3 & I2S DAC Audio Decoder](/_images/ha-sync-hw-fixes.jpg "After fixing T-Display S3 & I2S DAC Audio Decoder") {.wp-post-image}
+
 - do the soldering according to the diagram above. That's how it looked for me:
 
 ![Picture after soldering T-Display S3 & I2S DAC Audio Decoder](/_images/ha-sync-soldering.jpg "After soldering T-Display S3 & I2S DAC Audio Decoder") {.wp-post-image}
