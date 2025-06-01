@@ -86,7 +86,7 @@ sudo systemctl restart icecast2
 !pic
 - do the soldering according to the diagram above. That's how it looked for me:
 
-![Picture after soldering T-Display S3 & I2S DAC Audio Decoder](/_images/ha-sync-butt-edit-menu.png "After soldering T-Display S3 & I2S DAC Audio Decoder") {.wp-post-image}
+![Picture after soldering T-Display S3 & I2S DAC Audio Decoder](/_images/ha-sync-soldering.jpg "After soldering T-Display S3 & I2S DAC Audio Decoder") {.wp-post-image}
 
 - Install ESPhome IDE according to the [guide](https://esphome.io/guides/getting_started_hassio)
 - connect and flash audio player using YAML config file:
