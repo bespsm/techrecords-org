@@ -63,7 +63,7 @@ __Audio Player__
 ![Picture of PulseAudio, Input Devices menu](/_images/ha-sync-pulse-audio.png "PulseAudio, Input Devices menu") {.wp-post-image}
 
 * install [icecast2](https://icecast.org/download/) service, responsible for converting PCM stream to icecast format
-* edit icecast confguration file, (usually it's located in */etc/icecast2/icecast.xml*). You need to change <source-password> (pass for the tools, that stream the source), <admin-password> (admin pass), <admin-user> (any nickname), <hostname> (IP address of your PC), <port> (could be 8000) fields
+* edit icecast confguration file, (usually it's located in */etc/icecast2/icecast.xml*). You need to change \<source-password\> (pass for the tools, that stream the source), \<admin-password\> (admin pass), \<admin-user\> (any nickname), \<hostname\> (IP address of your PC), \<port\> (could be 8000) fields
 * restart icecast:
 ```
 sudo systemctl restart icecast2
@@ -77,7 +77,7 @@ sudo systemctl restart icecast2
 
 ![Picture of Settings menu of Butt](/_images/ha-sync-butt-edit-menu.png "Settings menu of Butt") {.wp-post-image}
 
-- Define "name", select Server Type as "Icecast", port, IP address and password should be equal to <port>,  <hostname>, <source-password> from icecast configuration. "Icecast mountpoint:"  is a postfix for stream URL, for example: ***http://<hostname>:<port>/<postfix>***
+- Define "name", select Server Type as "Icecast", port, IP address and password should be equal to \<port\>,  \<hostname\>, \<source-password\> from icecast configuration. "Icecast mountpoint:"  is a postfix for stream URL, for example: **http://\<hostname\>:\<port\>/\<postfix\>**
 
 ## HOW-TO set up & flash audio player for receiving audio stream
 
