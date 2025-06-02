@@ -103,7 +103,7 @@ sudo systemctl restart icecast2
 - Install ESPhome IDE according to the [guide](https://esphome.io/guides/getting_started_hassio)
 - connect and flash audio player using YAML config file:
 ```
-esphome run ha-sync-audio.md
+esphome run ha-audio-sync-config.yaml
 ```
 YAML file is located [here](https://github.com/bespsm/ha-configs/blob/main/ha-audio-sync/ha-audio-sync-config.yaml)
 
