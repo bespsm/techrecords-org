@@ -1,7 +1,7 @@
 ---
 title: Yet Another Synchronous Multiroom Audio Player Based On Home Assistant With GUI Control
 featured_image: _images/ha-sync-communication.png
-post_date: 2022-06-01 23:14:59
+post_date: 2025-06-01 23:14:59
 post_excerpt: This article describes yet another solution for a synchronous multiroom audio. It contains device demo...
 comment_status: closed
 taxonomy:
