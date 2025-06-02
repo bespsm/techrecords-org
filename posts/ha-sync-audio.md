@@ -31,7 +31,7 @@ The audio player streams audio from a linux-based PC while been connected to the
 * remote control over HA
 
 
-Short demo of the player: Start/stop commands (localy and over HA), volume adjustment, backlight turn on due to button press:
+Short demo of the player: Start/stop commands (locally and over HA), volume adjustment, backlight turn on due to button press:
 <div class="entry-content alignfull wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
     <figure class="wp-block-video">
         <video controls="" muted="" src="https://github.com/bespsm/techrecords-org/raw/refs/heads/main/_images/ha-sync-device-demo.mp4" playsinline=""></video>
@@ -64,7 +64,7 @@ __Raspberry PI__
 __Audio Player__
 * [ESPHome-based flashware](https://esphome.io/)
 
-## HOW-TO set up linux-based PC as streaming source
+## HOW-TO set up linux-based PC as a streaming source
 
 * make sure [Pulse Audio](https://www.freedesktop.org/wiki/Software/PulseAudio/Download/) is installed
 * open UI PulseAudio Volume Control app
@@ -73,7 +73,7 @@ __Audio Player__
 ![Picture of PulseAudio, Input Devices menu](/_images/ha-sync-pulse-audio.png "PulseAudio, Input Devices menu") {.wp-post-image}
 
 * install [icecast2](https://icecast.org/download/) service, responsible for converting PCM stream to icecast format
-* edit icecast confguration file, (usually it's located in */etc/icecast2/icecast.xml*). You need to change \<source-password\> (pass for the tools, that stream the source), \<admin-password\> (admin pass), \<admin-user\> (any nickname), \<hostname\> (IP address of your PC), \<port\> (could be 8000) fields
+* edit icecast configuration file, (usually it's located in */etc/icecast2/icecast.xml*). You need to change \<source-password\> (pass for the tools, that stream the source), \<admin-password\> (admin pass), \<admin-user\> (any nickname), \<hostname\> (IP address of your PC), \<port\> (could be 8000) fields
 * restart icecast:
 ```
 sudo systemctl restart icecast2
@@ -111,7 +111,7 @@ YAML file is located [here](https://github.com/bespsm/ha-configs/blob/main/ha-au
 
 ## HOW-TO connect audio player to Home Assistant
 
-Once the audio player is flashed with correct WI-FI credentials, it will be automatically discovered with Home Assistant platform. Enter conviniet name for it.
+Once the audio player is flashed with correct WI-FI credentials, it will be automatically discovered with Home Assistant platform. Enter convenient name for it.
 
 ![Picture of discovered audio player in Home Assistant](/_images/ha-sync-ha-discovery-esphome.png "Discovered audio player in Home Assistant") {.wp-post-image} 
 
@@ -124,11 +124,11 @@ Copy it and replace default entity id ("media_player.s3_esphome_i2s_media_player
 ## Benefits and Drawbacks
 
 * 🙂 does not require any code development
-* 🙂 compare to bluetooth-solution, it can work in one-to-many streaming configuration
-* 🙂 compare to bluetooth-solution, it can be controlled either locally or remotely over HA 
-* 🙂 compare to bluetooth-solution, it's active control, player's user deide when to start streaming, not the streaming source
-* 🙂 compare to bluetooth-solution, neither receiver nor sender is exposed to bluetooth network hich can cause exteral unwanted connections
-* 🙁 compare to bluetooth-solution, audio stream is not normalized. When the origin audio is louder, receiver part gets louder audio (it can be fixed)
+* 🙂 compare to Bluetooth-solution, it can work in one-to-many streaming configuration
+* 🙂 compare to Bluetooth-solution, it can be controlled either locally or remotely over HA 
+* 🙂 compare to Bluetooth-solution, it's active control, receiver decides when to start streaming, not the streaming source
+* 🙂 compare to Bluetooth-solution, neither receiver nor sender is exposed to bluetooth network which can cause exteral unwanted connections
+* 🙁 compare to Bluetooth-solution, audio stream is not normalized. When the origin audio is louder, receiver part gets louder audio (it can be fixed)
 * 🙁 requires basic soldering skills
 * 🙁 it's only for HA users, it requires basic knowledge of defining new services in HA
 * 🙁 the audio is not really synchronous. From the other point of view, I cannot be in the few rooms simultaneously, so I don't need really need to have fully synchronous audio
@@ -138,13 +138,13 @@ Copy it and replace default entity id ("media_player.s3_esphome_i2s_media_player
 
 After using the player for 2 weeks I got some requests for this device:
 - (if there will be requests) add HOW-TO for streaming side on Windows or MacOS
-- (if there will be requests) add soultion without LCD display, just with the buttons
+- (if there will be requests) add solution without LCD display, just with the buttons
 - normalized audio on receiver, so sound level on streaming part is not dependend on receiver part
 - add docker file for setting-up streaming side
-- add opprortunity to control the sound level of streming side from the audio player
+- add opportunity to control the sound level of streaming side from the audio player
 - improve state synchronization between HA and the player (If the device restarted I cannot start to listen stream from HA. But it can be fixed)
 
 ## My Feedback
 
-First things first, it solved my problem, so the device turn to be a useful, at least for me. The device is small and can be taped on a flat wall or on a shelf (that's what I did). The cabel placing is okay. Would be better to have both connected from one side (although for such a small device it's not really possible).
-For the negative sides, 2 times I observed audio stucking after 2-3 minutes of playing and once there was some noise in the stream (most probaly related to a poor wi-fi connection). Simple device restart fixed all those cases.
+First things first, it solved my problem, so the device turn to be a useful, at least for me. The device is small and can be taped on a flat wall or on a shelf (that's what I did). The cable placing is okay. Would be better to have both connected from one side (although for such a small device it's not really possible).
+For the negative sides, 2 times I observed that the audio stuck after 2-3 minutes of playing. Once there was some noise in the stream (most probably related to the poor WI-FI connection). Simple device restart fixed all those cases.
