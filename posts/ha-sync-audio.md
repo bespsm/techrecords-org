@@ -125,7 +125,9 @@ Copy it and replace default entity id ("media_player.s3_esphome_i2s_media_player
 
 * 🙂 does not require any code development
 * 🙂 compare to bluetooth-solution, it can work in one-to-many streaming configuration
-* 🙂 compare to bluetooth-solution, it can be controlled either locally or remotely over HA
+* 🙂 compare to bluetooth-solution, it can be controlled either locally or remotely over HA 
+* 🙂 compare to bluetooth-solution, it's active control, player's user deide when to start streaming, not the streaming source
+* 🙂 compare to bluetooth-solution, neither receiver nor sender is exposed to bluetooth network hich can cause exteral unwanted connections
 * 🙁 compare to bluetooth-solution, audio stream is not normalized. When the origin audio is louder, receiver part gets louder audio (it can be fixed)
 * 🙁 requires basic soldering skills
 * 🙁 it's only for HA users, it requires basic knowledge of defining new services in HA
