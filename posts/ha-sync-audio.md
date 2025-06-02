@@ -26,7 +26,7 @@ The audio player streams audio from a linux-based PC while been connected to the
 * 2 physical buttons to control player and 1 button to reset
 * remote control over HA
 
-!demo
+<figure class="wp-block-video"><video controls muted src="https://github.com/mediaelement/mediaelement-files/raw/refs/heads/master/echo-hereweare.mp4" playsinline></video></figure>
 
 ## Player Wiring Diagram
 
@@ -82,7 +82,7 @@ sudo systemctl restart icecast2
 ## HOW-TO set up & flash audio player for receiving audio stream
 
 - Make sure you have all hardware components described above
-- to put DAC Decoder I had to adapt it and also adapty T-Display Shell, see the picture:
+- to put DAC Decoder I had to adapt it and also adapt T-Display Shell, see the picture:
 
 ![Picture after fixing T-Display S3 & I2S DAC Audio Decoder](/_images/ha-sync-hw-fixes.jpg "After fixing T-Display S3 & I2S DAC Audio Decoder") {.wp-post-image}
 
