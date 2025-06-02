@@ -1,5 +1,9 @@
 ---
 title: Yet Another Synchronous Multiroom Audio Player Based On Home Assistant With GUI Control
+featured_image: _images/ha-sync-communication.png
+post_date: 2022-06-01 23:14:59
+post_excerpt: This article describes yet another solution for a synchronous multiroom audio. It contains device demo...
+comment_status: closed
 taxonomy:
     category: Projects
     post_tag:
@@ -26,7 +30,12 @@ The audio player streams audio from a linux-based PC while been connected to the
 * 2 physical buttons to control player and 1 button to reset
 * remote control over HA
 
-<figure class="wp-block-video"><video controls muted src="https://github.com/mediaelement/mediaelement-files/raw/refs/heads/master/echo-hereweare.mp4" playsinline></video></figure>
+Here is a short demo of the device:
+<div class="entry-content alignfull wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
+    <figure class="wp-block-video">
+        <video controls="" muted="" src="https://github.com/mediaelement/mediaelement-files/raw/refs/heads/master/echo-hereweare.mp4" playsinline=""></video>
+    </figure>
+</div>
 
 ## Player Wiring Diagram
 
