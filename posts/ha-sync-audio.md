@@ -69,6 +69,7 @@ __Audio Player__
 * make sure [Pulse Audio](https://www.freedesktop.org/wiki/Software/PulseAudio/Download/) is installed
 * open UI PulseAudio Volume Control app
 * go to tab "Input Devices", down in the menu select "Show: Monitors", adjust the volume of your monitor channel
+* choose your streaming device by clicking on "Set as Fallback" button
 
 ![Picture of PulseAudio, Input Devices menu](/_images/ha-sync-pulse-audio.png "PulseAudio, Input Devices menu") {.wp-post-image}
 
